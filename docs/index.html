@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReConText3D: Replay-based Continual Text-to-3D Generation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+    h1, h2 { margin-bottom: 0.3em; }
+    .authors, .links { margin-bottom: 1em; }
+    img { max-width: 100%; border-radius: 8px; }
+    .button {
+      display: inline-block;
+      padding: 10px 16px;
+      margin-right: 10px;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 12px;
+      overflow-x: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ReConText3D: Replay-based Continual Text-to-3D Generation</h1>
+
+  <div class="authors">
+    Muhammad Ahmed Ullah Khan, Muhammad Haris Bin Amir, Didier Stricker, Muhammad Zeshan Afzal
+  </div>
+
+  <div class="links">
+    <a class="button" href="paper.pdf">Paper</a>
+    <a class="button" href="https://arxiv.org/abs/xxxx.xxxxx">arXiv</a>
+    <a class="button" href="https://github.com/mauk95/ReConText3D">Code</a>
+  </div>
+
+  <h2>Abstract</h2>
+  <p>
+    Continual learning enables models to acquire new knowl-
+edge over time while retaining previously learned capa-
+bilities. However, its application to text-to-3D genera-
+tion remains unexplored. We present ReConText3D, the
+first framework for continual text-to-3D generation. We
+first demonstrate that existing text-to-3D models suffer from
+catastrophic forgetting under incremental training. ReCon-
+Text3D enables generative models to incrementally learn
+new 3D categories from textual descriptions while preserv-
+ing the ability to synthesize previously seen assets. Our
+method constructs a compact and diverse replay memory. through text-embedding k-Center selection, allowing rep-
+resentative rehearsal of prior knowledge without modify-
+ing the underlying architecture. To systematically eval-
+uate continual text-to-3D learning, we introduce Toys4K-
+CL, a benchmark derived from the Toys4K dataset that pro-
+vides balanced and semantically diverse class-incremental
+splits. Extensive experiments on the Toys4K-CL bench-
+mark show that ReConText3D consistently outperforms all
+baselines across different generative backbones, maintain-
+ing high-quality generation for both old and new classes.
+To the best of our knowledge, this work establishes the
+first continual learning framework and benchmark for text-
+to-3D generation, opening a new direction for incremen-
+tal 3D generative modeling
+  </p>
+
+  <h2>Teaser</h2>
+  <img src="assets/teaser.png" alt="Paper teaser" />
+
+  <h2>BibTeX</h2>
+  <pre>
+@article{yourpaper2026,
+  title={Your Paper Title},
+  author={Author 1 and Author 2},
+  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  year={2026}
+}
+  </pre>
+</body>
+</html>

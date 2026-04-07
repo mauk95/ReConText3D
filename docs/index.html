@@ -5,85 +5,316 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ReConText3D: Replay-based Continual Text-to-3D Generation</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+    :root {
+      --text: #222;
+      --muted: #666;
+      --border: #e5e5e5;
+      --bg-soft: #fafafa;
+      --accent: #111;
+      --accent-hover: #333;
     }
-    h1, h2 { margin-bottom: 0.3em; }
-    .authors, .links { margin-bottom: 1em; }
-    img { max-width: 100%; border-radius: 8px; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .authors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 18px;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+
+    .authors a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .authors a:hover {
+      text-decoration: underline;
+    }
+
+    .affiliations {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .emails {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .emails a {
+      color: var(--muted);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .emails a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+      margin-bottom: 18px;
+    }
+
     .button {
       display: inline-block;
-      padding: 10px 16px;
-      margin-right: 10px;
-      background: #111;
+      padding: 11px 18px;
+      border-radius: 10px;
+      background: var(--accent);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      font-size: 0.96rem;
+      font-weight: 600;
+      transition: background 0.2s ease;
     }
+
+    .button:hover {
+      background: var(--accent-hover);
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    p {
+      margin: 0 0 14px;
+      text-align: justify;
+    }
+
+    .figure {
+      margin: 24px 0 10px;
+      text-align: center;
+    }
+
+    .figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      background: white;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.96rem;
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .content-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
     pre {
+      margin: 0;
       background: #f4f4f4;
-      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
       overflow-x: auto;
-      border-radius: 8px;
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 28px 16px 48px;
+      }
+
+      .authors,
+      .emails,
+      .links {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>ReConText3D: Replay-based Continual Text-to-3D Generation</h1>
+  <div class="container">
+    <header class="hero">
+      <div class="title">ReConText3D: Replay-based Continual Text-to-3D Generation</div>
 
-  <div class="authors">
-    Muhammad Ahmed Ullah Khan, Muhammad Haris Bin Amir, Didier Stricker, Muhammad Zeshan Afzal
-  </div>
+      <div class="authors">
+        <a href="mailto:muhammad_ahmed_ullah.khan@dfki.de">Muhammad Ahmed Ullah Khan<sup>1,2†</sup></a>
+        <a href="mailto:haris.amir@edu.rptu.de">Muhammad Haris Bin Amir<sup>2</sup></a>
+        <a href="mailto:didier.stricker@dfki.de">Didier Stricker<sup>1</sup></a>
+        <a href="mailto:muhammad_zeshan.afzal@dfki.de">Muhammad Zeshan Afzal<sup>1</sup></a>
+      </div>
 
-  <div class="links">
-    <a class="button" href="paper.pdf">Paper</a>
-    <a class="button" href="https://arxiv.org/abs/xxxx.xxxxx">arXiv</a>
-    <a class="button" href="https://github.com/mauk95/ReConText3D">Code</a>
-  </div>
+      <div class="affiliations">
+        <span><sup>1</sup> <a href="https://dfki.de/web" target="_blank" style="color: inherit; text-decoration: none;">DFKI</a></span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <span><sup>2</sup> <a href="https://rptu.de/" target="_blank" style="color: inherit; text-decoration: none;">RPTU Kaiserslautern-Landau</a></span>
+      </div>
 
-  <h2>Abstract</h2>
-  <p>
-    Continual learning enables models to acquire new knowl-
-edge over time while retaining previously learned capa-
-bilities. However, its application to text-to-3D genera-
-tion remains unexplored. We present ReConText3D, the
-first framework for continual text-to-3D generation. We
-first demonstrate that existing text-to-3D models suffer from
-catastrophic forgetting under incremental training. ReCon-
-Text3D enables generative models to incrementally learn
-new 3D categories from textual descriptions while preserv-
-ing the ability to synthesize previously seen assets. Our
-method constructs a compact and diverse replay memory. through text-embedding k-Center selection, allowing rep-
-resentative rehearsal of prior knowledge without modify-
-ing the underlying architecture. To systematically eval-
-uate continual text-to-3D learning, we introduce Toys4K-
-CL, a benchmark derived from the Toys4K dataset that pro-
-vides balanced and semantically diverse class-incremental
-splits. Extensive experiments on the Toys4K-CL bench-
-mark show that ReConText3D consistently outperforms all
-baselines across different generative backbones, maintain-
-ing high-quality generation for both old and new classes.
-To the best of our knowledge, this work establishes the
-first continual learning framework and benchmark for text-
-to-3D generation, opening a new direction for incremen-
-tal 3D generative modeling
-  </p>
+      <div class="emails">
+        <a href="mailto:muhammad_ahmed_ullah.khan@dfki.de">muhammad_ahmed_ullah.khan@dfki.de</a>
+        <a href="mailto:haris.amir@edu.rptu.de">haris.amir@edu.rptu.de</a>
+      </div>
 
-  <h2>Teaser</h2>
-  <img src="assets/teaser.png" alt="Paper teaser" />
+      <div class="note">† Corresponding Author</div>
 
-  <h2>BibTeX</h2>
-  <pre>
-@article{yourpaper2026,
-  title={Your Paper Title},
-  author={Author 1 and Author 2},
+      <div class="links">
+        <a class="button" href="paper.pdf">Paper</a>
+        <a class="button" href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank">arXiv</a>
+        <a class="button" href="https://github.com/mauk95/ReConText3D" target="_blank">Code</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Abstract</h2>
+      <div class="content-box">
+        <p>
+          Continual learning enables models to acquire new knowledge over time while retaining previously learned
+          capabilities. However, its application to text-to-3D generation remains unexplored. We present ReConText3D,
+          the first framework for continual text-to-3D generation. We first demonstrate that existing text-to-3D models
+          suffer from catastrophic forgetting under incremental training. ReConText3D enables generative models to
+          incrementally learn new 3D categories from textual descriptions while preserving the ability to synthesize
+          previously seen assets. Our method constructs a compact and diverse replay memory through text-embedding k-Center selection,
+          allowing representative rehearsal of prior knowledge without modifying the underlying architecture. To
+          systematically evaluate continual text-to-3D learning, we introduce Toys4K-CL, a benchmark derived from
+          the Toys4K dataset that provides balanced and semantically diverse class-incremental splits. Extensive experiments on the Toys4K-CL benchmark show that ReConText3D consistently outperforms all
+          baselines across different generative backbones, maintaining high-quality generation for both old and new
+          classes. To the best of our knowledge, this work establishes the first continual learning framework and
+          benchmark for text-to-3D generation, opening a new direction for incremental 3D generative modeling.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Teaser</h2>
+      <div class="figure">
+        <img src="assets/teaser.png" alt="Teaser figure for ReConText3D" />
+      </div>
+      <div class="caption">
+        Overview of continual text-to-3D generation and the motivation behind ReConText3D.
+      </div>
+    </section>
+
+    <section>
+      <h2>Method</h2>
+      <p>
+        ReConText3D addresses continual text-to-3D generation using a replay-based learning strategy designed to
+        preserve previously learned generative capability while adapting to novel categories. Instead of modifying
+        the underlying generative backbone, the method constructs a compact and diverse replay memory from prior
+        data using text-embedding k-Center selection. During incremental training, representative replay samples are
+        revisited to reduce catastrophic forgetting and maintain generation quality on earlier categories.
+      </p>
+
+      <div class="figure">
+        <img src="assets/framework.png" alt="Framework diagram of ReConText3D" />
+      </div>
+      <div class="caption">
+        Framework of <b>ReConText3D</b>. Our method builds a representative replay buffer from previous categories
+        and jointly optimizes replay and current-task samples during incremental training, enabling continual
+        adaptation without altering the original model architecture.
+      </div>
+    </section>
+
+    <section>
+      <h2>Experimental Results</h2>
+      <p>
+        We evaluate ReConText3D on <b>Toys4K-CL</b>, a benchmark specifically designed for class-incremental
+        text-to-3D generation. Across multiple text-to-3D backbones, our replay-based strategy consistently improves
+        retention of previously learned categories while remaining competitive on newly introduced ones. The results
+        demonstrate a stronger balance between plasticity and stability compared to standard fine-tuning and continual
+        learning baselines.
+      </p>
+
+      <div class="figure">
+        <img src="assets/quant_results.png" alt="Experimental results for ReConText3D" />
+      </div>
+      <div class="caption">
+        Quantitative and qualitative results on the Toys4K-CL benchmark. ReConText3D consistently reduces forgetting
+        while preserving the ability to learn new categories across different generative backbones.
+      </div>
+    </section>
+
+    <section>
+      <h2>BibTeX</h2>
+      <pre>@article{khan2026recontext3d,
+  title={ReConText3D: Replay-based Continual Text-to-3D Generation},
+  author={Muhammad Ahmed Ullah Khan and Muhammad Haris Bin Amir and Didier Stricker and Muhammad Zeshan Afzal},
   journal={arXiv preprint arXiv:xxxx.xxxxx},
   year={2026}
-}
-  </pre>
+}</pre>
+    </section>
+
+    <div class="footer">
+      Project page for ReConText3D.
+    </div>
+  </div>
 </body>
 </html>

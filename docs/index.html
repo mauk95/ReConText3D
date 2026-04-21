@@ -233,6 +233,10 @@
       </div>
     </header>
 
+    <div class="figure">
+      <img src="assets/teaser.png" alt="Teaser figure for ReConText3D" />
+    </div>
+
     <section>
       <h2>Abstract</h2>
       <div class="content-box">
@@ -250,16 +254,6 @@
           classes. To the best of our knowledge, this work establishes the first continual learning framework and
           benchmark for text-to-3D generation, opening a new direction for incremental 3D generative modeling.
         </p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Teaser</h2>
-      <div class="figure">
-        <img src="assets/teaser.png" alt="Teaser figure for ReConText3D" />
-      </div>
-      <div class="caption">
-        Overview of continual text-to-3D generation and the motivation behind ReConText3D.
       </div>
     </section>
 
@@ -285,6 +279,7 @@
 
     <section>
       <h2>Experimental Results</h2>
+
       <p>
         We evaluate ReConText3D on <b>Toys4K-CL</b>, a benchmark specifically designed for class-incremental
         text-to-3D generation. Across multiple text-to-3D backbones, our replay-based strategy consistently improves
@@ -293,13 +288,24 @@
         learning baselines.
       </p>
 
+      <!-- Quantitative -->
       <div class="figure">
-        <img src="assets/quant_results.png" alt="Experimental results for ReConText3D" />
+        <img src="assets/quant_results.png" alt="Quantitative results for ReConText3D" />
       </div>
       <div class="caption">
-        Quantitative and qualitative results on the Toys4K-CL benchmark. ReConText3D consistently reduces forgetting
-        while preserving the ability to learn new categories across different generative backbones.
+        <b>Quantitative Results.</b> Performance comparison on the Toys4K-CL benchmark across different continual
+        learning strategies. ReConText3D achieves superior retention while maintaining strong adaptation to new classes.
       </div>
+
+      <!-- Qualitative -->
+      <div class="figure">
+        <img src="assets/qual_results.png" alt="Qualitative results for ReConText3D" />
+      </div>
+      <div class="caption">
+        <b>Qualitative Results.</b> Generated 3D samples across base and novel categories. ReConText3D preserves
+        visual fidelity for previously learned classes while adapting effectively to newly introduced categories.
+      </div>
+
     </section>
 
     <section>

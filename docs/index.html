@@ -34,7 +34,26 @@
 
     .hero {
       text-align: center;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
+    }
+
+    .venue {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg-soft);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .venue img {
+      height: 28px;
+      width: auto;
     }
 
     .title {
@@ -53,13 +72,61 @@
       margin-bottom: 16px;
     }
 
-    .authors a {
-      color: var(--text);
-      text-decoration: none;
+    .author-dropdown {
+      position: relative;
+      display: inline-block;
     }
 
-    .authors a:hover {
+    .author-name {
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .author-name:hover {
       text-decoration: underline;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 28px;
+      min-width: 180px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 8px;
+      z-index: 10;
+      text-align: left;
+    }
+
+    .author-dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--bg-soft);
+    }
+
+    .icon {
+      width: 18px;
+      text-align: center;
+      display: inline-block;
     }
 
     .affiliations {
@@ -68,22 +135,12 @@
       margin-bottom: 14px;
     }
 
-    .emails {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 20px;
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-    }
-
-    .emails a {
-      color: var(--muted);
+    .affiliations a {
+      color: inherit;
       text-decoration: none;
-      word-break: break-word;
     }
 
-    .emails a:hover {
+    .affiliations a:hover {
       text-decoration: underline;
     }
 
@@ -135,7 +192,7 @@
     }
 
     .figure {
-      margin: 24px 0 10px;
+      margin: 10px 0 24px;
       text-align: center;
     }
 
@@ -193,41 +250,60 @@
       }
 
       .authors,
-      .emails,
       .links {
         flex-direction: column;
         align-items: center;
       }
+
+      .dropdown-menu {
+        position: static;
+        transform: none;
+        margin-top: 6px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header class="hero">
+
+      <div class="venue">
+        <img src="assets/cvpr_logo.png" alt="CVPR logo" />
+        <span>CVPR 2026</span>
+      </div>
+
       <div class="title">ReConText3D: Replay-based Continual Text-to-3D Generation</div>
 
       <div class="authors">
-        <a href="mailto:muhammad_ahmed_ullah.khan@dfki.de">Muhammad Ahmed Ullah Khan<sup>1,2†</sup></a>
-        <a href="mailto:haris.amir@edu.rptu.de">Muhammad Haris Bin Amir<sup>2</sup></a>
-        <a href="mailto:didier.stricker@dfki.de">Didier Stricker<sup>1</sup></a>
-        <a href="mailto:muhammad_zeshan.afzal@dfki.de">Muhammad Zeshan Afzal<sup>1</sup></a>
+        <span class="author-dropdown">
+          <span class="author-name">Muhammad Ahmed Ullah Khan<sup>1,2†</sup></span>
+          <span class="dropdown-menu">
+            <a href="mailto:muhammad_ahmed_ullah.khan@dfki.de">
+              <span class="icon">✉️</span> Email
+            </a>
+            <a href="https://scholar.google.com/citations?user=_Bor0rAAAAAJ&hl=en" target="_blank">
+              <span class="icon">🎓</span> Google Scholar
+            </a>
+          </span>
+        </span>
+
+        <a class="author-name" href="mailto:haris.amir@edu.rptu.de">Muhammad Haris Bin Amir<sup>2</sup></a>
+        <a class="author-name" href="mailto:didier.stricker@dfki.de">Didier Stricker<sup>1</sup></a>
+        <a class="author-name" href="mailto:muhammad_zeshan.afzal@dfki.de">Muhammad Zeshan Afzal<sup>1</sup></a>
       </div>
 
       <div class="affiliations">
-        <span><sup>1</sup> <a href="https://dfki.de/web" target="_blank" style="color: inherit; text-decoration: none;">DFKI</a></span>
+        <span><sup>1</sup> <a href="https://dfki.de/web" target="_blank">DFKI</a></span>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <span><sup>2</sup> <a href="https://rptu.de/" target="_blank" style="color: inherit; text-decoration: none;">RPTU Kaiserslautern-Landau</a></span>
-      </div>
-
-      <div class="emails">
-        <a href="mailto:muhammad_ahmed_ullah.khan@dfki.de">muhammad_ahmed_ullah.khan@dfki.de</a>
-        <a href="mailto:haris.amir@edu.rptu.de">haris.amir@edu.rptu.de</a>
+        <span><sup>2</sup> <a href="https://rptu.de/" target="_blank">RPTU Kaiserslautern-Landau</a></span>
       </div>
 
       <div class="note">† Corresponding Author</div>
 
       <div class="links">
         <a class="button" href="2604.13730v1.pdf">Paper</a>
+        <a class="button" href="poster.png" target="_blank">Poster</a>
         <a class="button" href="https://arxiv.org/abs/2604.13730" target="_blank">arXiv</a>
         <a class="button" href="https://github.com/mauk95/ReConText3D" target="_blank">Code</a>
       </div>
@@ -246,10 +322,11 @@
           the first framework for continual text-to-3D generation. We first demonstrate that existing text-to-3D models
           suffer from catastrophic forgetting under incremental training. ReConText3D enables generative models to
           incrementally learn new 3D categories from textual descriptions while preserving the ability to synthesize
-          previously seen assets. Our method constructs a compact and diverse replay memory through text-embedding k-Center selection,
-          allowing representative rehearsal of prior knowledge without modifying the underlying architecture. To
-          systematically evaluate continual text-to-3D learning, we introduce Toys4K-CL, a benchmark derived from
-          the Toys4K dataset that provides balanced and semantically diverse class-incremental splits. Extensive experiments on the Toys4K-CL benchmark show that ReConText3D consistently outperforms all
+          previously seen assets. Our method constructs a compact and diverse replay memory through text-embedding
+          k-Center selection, allowing representative rehearsal of prior knowledge without modifying the underlying
+          architecture. To systematically evaluate continual text-to-3D learning, we introduce Toys4K-CL, a benchmark
+          derived from the Toys4K dataset that provides balanced and semantically diverse class-incremental splits.
+          Extensive experiments on the Toys4K-CL benchmark show that ReConText3D consistently outperforms all
           baselines across different generative backbones, maintaining high-quality generation for both old and new
           classes. To the best of our knowledge, this work establishes the first continual learning framework and
           benchmark for text-to-3D generation, opening a new direction for incremental 3D generative modeling.
@@ -288,7 +365,6 @@
         learning baselines.
       </p>
 
-      <!-- Quantitative -->
       <div class="figure">
         <img src="assets/quant_results.png" alt="Quantitative results for ReConText3D" />
       </div>
@@ -297,7 +373,6 @@
         learning strategies. ReConText3D achieves superior retention while maintaining strong adaptation to new classes.
       </div>
 
-      <!-- Qualitative -->
       <div class="figure">
         <img src="assets/qual_results.png" alt="Qualitative results for ReConText3D" />
       </div>
@@ -305,7 +380,6 @@
         <b>Qualitative Results.</b> Generated 3D samples across base and novel categories. ReConText3D preserves
         visual fidelity for previously learned classes while adapting effectively to newly introduced categories.
       </div>
-
     </section>
 
     <section>
@@ -313,7 +387,7 @@
       <pre>@article{khan2026recontext3d,
   title={ReConText3D: Replay-based Continual Text-to-3D Generation},
   author={Muhammad Ahmed Ullah Khan and Muhammad Haris Bin Amir and Didier Stricker and Muhammad Zeshan Afzal},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  journal={arXiv preprint arXiv:2604.13730},
   year={2026}
 }</pre>
     </section>

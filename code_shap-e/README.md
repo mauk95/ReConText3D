@@ -1,0 +1,1 @@
+Details for Shap-E will be released soon.

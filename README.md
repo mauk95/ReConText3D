@@ -225,3 +225,22 @@ Description of arguments:
 - **/code_trellis**: codebase for training and generation using TRELLIS model.
 - **/code_shap-e**: codebase for training and generation using Shap-E model.
 - **/datasets**: Root directory for storing Toys4K-CL dataset files.
+
+# Acknowledgement
+
+We thank the authors of [TRELLIS](https://github.com/microsoft/TRELLIS) and [Cap3D](https://github.com/crockwell/Cap3D/tree/main) and acknowledge the use of their code.
+
+## Citation
+
+If you use this dataset in your work, please consider citing the following publications.
+
+```
+@InProceedings{Khan_2026_CVPR,
+    author    = {Khan, Muhammad Ahmed Ullah and Bin Amir, Muhammad Haris and Stricker, Didier and Afzal, Muhammad Zeshan},
+    title     = {ReConText3D: Replay-based Continual Text-to-3D Generation},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Findings},
+    month     = {June},
+    year      = {2026},
+    pages     = {7893-7902}
+}
+```
